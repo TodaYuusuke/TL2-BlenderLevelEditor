@@ -16,6 +16,9 @@ bl_info = {
 # ファイル名追加処理
 from .add_filename import MYADDON_OT_add_filename
 from .add_filename import OBJECT_PT_file_name
+# 無効化フラグ追加処理
+from .add_disable import MYADDON_OT_add_disable
+from .add_disable import OBJECT_PT_disable
 # コライダー追加処理
 from .add_collider import MYADDON_OT_add_collider
 from .add_collider import OBJECT_PT_collider
@@ -52,6 +55,8 @@ class TOPBAR_MT_my_menu(bpy.types.Menu):
 classes = (
     MYADDON_OT_add_filename,
     OBJECT_PT_file_name,
+    MYADDON_OT_add_disable,
+    OBJECT_PT_disable,
     MYADDON_OT_add_collider,
     OBJECT_PT_collider,
     MYADDON_OT_create_aabbcollider,

@@ -73,6 +73,12 @@ class MYADDON_OT_export_scene(bpy.types.Operator, bpy_extras.io_utils.ExportHelp
     def parse_scene_recursive_json(self, data_parent, object, level):
         # シーンのオブジェクト1個分のjsonオブジェクト生成
         json_object = dict()
+
+        # 無効化フラグがtrueならば出力しない
+        if "disable" in object:
+            if object["disable"]:
+                return
+
         # オブジェクト種類
         json_object["type"] = object.type
         # オブジェクト名
