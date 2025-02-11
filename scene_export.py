@@ -79,10 +79,15 @@ class MYADDON_OT_export_scene(bpy.types.Operator, bpy_extras.io_utils.ExportHelp
             if object["disable"]:
                 return
 
-        # オブジェクト種類
-        json_object["type"] = object.type
         # オブジェクト名
         json_object["name"] = object.name
+        # オブジェクト種類
+        json_object["type"] = object.type
+        # 曲線のときの処理
+        if "type" in object: # カスタムプロパティで指定された場合
+            json_object["type"] = object["type"]
+        else:
+            json_object["type"] = object.type
 
         # 曲線のときの処理
         if object.type == "CURVE":

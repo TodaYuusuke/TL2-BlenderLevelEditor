@@ -24,6 +24,9 @@ from .add_collider import MYADDON_OT_add_collider
 from .add_collider import OBJECT_PT_collider
 from .add_collider import MYADDON_OT_create_aabbcollider
 from .add_collider import DrawCollider
+# プレイヤースポーン地点追加処理
+from .add_player_spawnpoint import MYADDON_OT_add_player_spawnpoint
+from .add_player_spawnpoint import MYADDON_OT_set_player_spawnpoint
 # シーン出力処理
 from .scene_export import MYADDON_OT_export_scene
 
@@ -45,6 +48,7 @@ class TOPBAR_MT_my_menu(bpy.types.Menu):
         # 区切り線
         self.layout.separator()
         self.layout.operator(MYADDON_OT_export_scene.bl_idname, text=MYADDON_OT_export_scene.bl_label)
+        self.layout.operator(MYADDON_OT_set_player_spawnpoint.bl_idname, text=MYADDON_OT_set_player_spawnpoint.bl_label)
 
     # 既存のメニューにサブメニューを追加
     def submenu(self, context):
@@ -60,6 +64,8 @@ classes = (
     MYADDON_OT_add_collider,
     OBJECT_PT_collider,
     MYADDON_OT_create_aabbcollider,
+    MYADDON_OT_add_player_spawnpoint,
+    MYADDON_OT_set_player_spawnpoint,
     MYADDON_OT_export_scene,
     TOPBAR_MT_my_menu,
 )
